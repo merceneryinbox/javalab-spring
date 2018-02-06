@@ -14,4 +14,21 @@
 
 	<bean id="politeness" class="lab.aop.Politeness"/>
 
+    <bean id="personWithOutMoney" class="lab.model.UsualPerson">
+        <constructor-arg name="id" value="152"/>
+        <constructor-arg name="firstName" value="Ivan"/>
+        <constructor-arg name="lastName" value="Ivanich"/>
+        <constructor-arg name="country" value="Russia"/>
+        <constructor-arg name="age" value="35"/>
+        <constructor-arg name="height" value="2"/>
+        <constructor-arg name="isProgrammer" value="true"/>
+        <constructor-arg name="isBroke" value="true"/>
+        <constructor-arg name="contacts">
+            <list>
+                <value>
+                </value>
+            </list>
+        </constructor-arg>
+    </bean>
+
 </beans>
