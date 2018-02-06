@@ -23,11 +23,6 @@ public class Politeness {
         System.out.printf("Is %s Good Enough?%n", retVal.getName());
     }
 
-    @AfterThrowing("sellSquishee()")
-    public void sayYouAreNotAllowed() {
-        System.out.println("Hmmm... \n");
-    }
-
     @After("sellSquishee()")
     public void sayGoodby(){
         System.out.println("Good by");
