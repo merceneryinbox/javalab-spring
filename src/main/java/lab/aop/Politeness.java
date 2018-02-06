@@ -33,12 +33,4 @@ public class Politeness {
         System.out.println("Good Bye! \n");
     }
 
-    @Around("sellSquishee()")
-    public Object sayPoliteWordsAndSell(ProceedingJoinPoint pjp) throws Throwable {
-        System.out.println("Hi! \n");
-        Object retVal = pjp.proceed();
-        System.out.println("See you! \n");
-        return retVal;
-    }
-
 }
