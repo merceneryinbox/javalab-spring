@@ -1,14 +1,14 @@
 package lab.dao;
 
-import java.util.List;
-
 import lab.model.Country;
-
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
+
+import javax.sql.DataSource;
+import java.util.List;
 
 public class CountryDao extends JdbcDaoSupport {
 	private static final String LOAD_COUNTRIES_SQL = "insert into country (name, code_name) values ";
@@ -29,8 +29,9 @@ public class CountryDao extends JdbcDaoSupport {
 			{ "United States", "US" } };
 
 	private static final CountryRowMapper COUNTRY_ROW_MAPPER = new CountryRowMapper();
+    private DataSource dataSource;
 
-	public List<Country> getCountryList() {
+    public List<Country> getCountryList() {
 		// TODO: implement it
 		return null;
 	}
@@ -76,4 +77,12 @@ public class CountryDao extends JdbcDaoSupport {
 		}
 		return countryList.get(0);
 	}
+
+    public void setDataSource(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
+
+    public DataSource getDataSource() {
+        return dataSource;
+    }
 }

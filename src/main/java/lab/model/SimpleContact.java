@@ -8,4 +8,14 @@ import org.springframework.stereotype.Component;
 public class SimpleContact implements Contact {
     private String type;
     private String value;
+
+    @Override
+    public String getType() {
+        return null;
+    }
+
+    @Override
+    public String getValue() {
+        return null;
+    }
 }

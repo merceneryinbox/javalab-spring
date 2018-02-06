@@ -7,4 +7,9 @@ import org.springframework.stereotype.Component;
 @Value
 public class Squishee {
     private String name;
+
+    public Squishee(String usual_squishee, String name) {
+
+        this.name = name;
+    }
 }

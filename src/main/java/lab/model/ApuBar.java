@@ -1,6 +1,5 @@
 package lab.model;
 
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 
@@ -13,6 +12,6 @@ public class ApuBar implements Bar {
             throw new CustomerBrokenException();
 
         System.out.println("Here is your Squishee \n");
-        return new Squishee("Usual Squishee");
+        return new Squishee("Usual Squishee", name);
     }
 }
