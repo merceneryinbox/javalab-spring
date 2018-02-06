@@ -24,8 +24,8 @@ public class Politeness {
     }
 
     @AfterThrowing("execution(* sellSquishee(..))")
-    public Throwable youAreNotAllowed(){
-
+    public void youAreNotAllowed(){
+        System.out.println("You are ! Get out !");
     }
 
     @After("sellSquishee()")
