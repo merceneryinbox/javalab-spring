@@ -28,11 +28,6 @@ public class Politeness {
         System.out.println("Hmmm... \n");
     }
 
-    @After("sellSquishee()")
-    public void sayGoodBye() {
-        System.out.println("Good Bye! \n");
-    }
-
     @Around("sellSquishee()")
     public Object saypoliteWordsAndSell(ProceedingJoinPoint pjp) throws Throwable{
         System.out.println("Hello\n");
