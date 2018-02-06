@@ -1,4 +1,4 @@
 package wrappers;
 
-public class CoutryWrapper implements {
+public class CoutryWrapper {
 }

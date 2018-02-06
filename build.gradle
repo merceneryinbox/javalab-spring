@@ -51,7 +51,7 @@ dependencies {
             'org.hamcrest:java-hamcrest:+',
             'org.mockito:mockito-core:+',
             'org.springframework:spring-test:+',
-            'hsqldb:hsqldb:1.8.0.10'
+            'com.h2database,h2,:1.4.196'
 
     testRuntime 'org.junit.jupiter:junit-jupiter-engine:+'
 
@@ -62,6 +62,6 @@ dependencies {
 // type in terminal: gradle wrapper --gradle-version=4.5
 task wrapper(type: Wrapper) {
     description = 'Generates gradlew[.bat] scripts'
-    gradleVersion = '4.5'
+    gradleVersion = '4.5.1'
     distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
 }

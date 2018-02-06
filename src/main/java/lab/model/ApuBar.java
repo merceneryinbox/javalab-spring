@@ -1,5 +1,10 @@
 package lab.model;
 
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
+
+@Service("apubar")
 public class ApuBar implements Bar {
 
     @Override

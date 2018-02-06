@@ -1,10 +1,13 @@
 package lab.aop;
 
+import checkers.compilermsgs.quals.CompilerMessageKey;
 import lab.model.Person;
 import lab.model.Squishee;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
+import org.springframework.stereotype.Component;
 
+@Component
 @Aspect
 public class Politeness {
 
