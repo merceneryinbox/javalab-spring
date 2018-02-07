@@ -9,7 +9,6 @@
 	<aop:aspectj-autoproxy/>
 
 	<import resource="ioc.xml"/>
-
     <context:component-scan base-package="lab.aop"/>
 
 </beans>
