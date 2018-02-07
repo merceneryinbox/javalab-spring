@@ -1,11 +1,9 @@
 package aop;
 
-import commons.Tests;
 import lab.model.Bar;
 import lab.model.CustomerBrokenException;
 import lab.model.Person;
 import lombok.AllArgsConstructor;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,7 +16,7 @@ import static commons.Tests.fromSystemOut;
 import static org.springframework.test.util.AssertionErrors.assertTrue;
 
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration("classpath:application-context.xml")
+@ContextConfiguration("classpath:aop.xml")
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 class AopAspectJExceptionTest {
 

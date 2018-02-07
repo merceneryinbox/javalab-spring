@@ -2,8 +2,7 @@ package lab.model;
 
 import org.springframework.stereotype.Service;
 
-
-@Service("apubar")
+@Service
 public class ApuBar implements Bar {
 
     @Override
@@ -12,6 +11,6 @@ public class ApuBar implements Bar {
             throw new CustomerBrokenException();
 
         System.out.println("Here is your Squishee \n");
-        return new Squishee("Usual Squishee", name);
+        return new Squishee("Usual Squishee");
     }
 }

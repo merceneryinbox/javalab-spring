@@ -1,14 +1,13 @@
 package lab.aop;
 
-import checkers.compilermsgs.quals.CompilerMessageKey;
 import lab.model.Person;
 import lab.model.Squishee;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
-@Component
 @Aspect
+@Component
 public class Politeness {
 
     @Pointcut("execution(* sellSquishee(..))")
@@ -26,21 +25,22 @@ public class Politeness {
         System.out.printf("Is %s Good Enough?%n", retVal.getName());
     }
 
-    @AfterThrowing("execution(* sellSquishee(..))")
-    public void youAreNotAllowed(){
-        System.out.println("You are ! Get out !");
+    @AfterThrowing("sellSquishee()")
+    public void sayYouAreNotAllowed() {
+        System.out.println("Hmmm... \n");
     }
 
     @After("sellSquishee()")
-    public void sayGoodby(){
-        System.out.println("Good by");
+    public void sayGoodBye() {
+        System.out.println("Good Bye! \n");
     }
 
-    @Around("execution(* sellSquishee(..))")
-    public Object sayPolliteWordsAndSell(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
-        System.out.println("Hello!");
-        Object o= proceedingJoinPoint.proceed();
-        System.out.println("Goodby!");
-        return o;
+    @Around("sellSquishee()")
+    public Object sayPoliteWordsAndSell(ProceedingJoinPoint pjp) throws Throwable {
+        System.out.println("Hi! \n");
+        Object retVal = pjp.proceed();
+        System.out.println("See you! \n");
+        return retVal;
     }
+
 }
