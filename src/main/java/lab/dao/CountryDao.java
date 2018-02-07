@@ -6,7 +6,6 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
-
 import javax.sql.DataSource;
 import java.util.List;
 
@@ -32,8 +31,7 @@ public class CountryDao extends JdbcDaoSupport {
     private DataSource dataSource;
 
     public List<Country> getCountryList() {
-		// TODO: implement it
-		return null;
+		return getJdbcTemplate().query(GET_ALL_COUNTRIES_SQL, COUNTRY_ROW_MAPPER);		return null;
 	}
 
 	public List<Country> getCountryListStartWith(String name) {
