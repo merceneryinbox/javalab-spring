@@ -31,7 +31,7 @@ public class CountryDao extends JdbcDaoSupport {
     private DataSource dataSource;
 
     public List<Country> getCountryList() {
-		return getJdbcTemplate().query(GET_ALL_COUNTRIES_SQL, COUNTRY_ROW_MAPPER);		return null;
+		return getJdbcTemplate().query(GET_ALL_COUNTRIES_SQL, COUNTRY_ROW_MAPPER);
 	}
 
 	public List<Country> getCountryListStartWith(String name) {
