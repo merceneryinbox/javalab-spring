@@ -41,7 +41,7 @@ public class CountryDao extends JdbcDaoSupport {
 				getDataSource());
 		SqlParameterSource sqlParameterSource = new MapSqlParameterSource(
 				"name", name + "%");
-        return getNamedParameterJdbcTemplate
+        return namedParameterJdbcTemplate
                 .query(GET_COUNTRIES_BY_NAME_SQL,
                        Map.of(sqlParameterSource),
                        COUNTRY_ROW_MAPPER);
