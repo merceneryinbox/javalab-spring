@@ -19,7 +19,7 @@ public class CountryDao extends JdbcDaoSupport {
 	private static final String GET_COUNTRY_BY_NAME_SQL = "select * from country where name = '";
 	private static final String GET_COUNTRY_BY_CODE_NAME_SQL = "select * from country where code_name = '";
 
-	private static final String UPDATE_COUNTRY_NAME_SQL_1 = "update country SET name=";
+	private static final String UPDATE_COUNTRY_NAME_SQL_1 = "UPDATE country SET name='%s' WHERE code_name='%s'";
 	private static final String UPDATE_COUNTRY_NAME_SQL_2 = " where code_name='";
 
 	public static final String[][] COUNTRY_INIT_DATA = { { "Australia", "AU" },
@@ -48,7 +48,8 @@ public class CountryDao extends JdbcDaoSupport {
 	}
 
 	public void updateCountryName(String codeName, String newCountryName) {
-        getJdbcTemplate().query(UPDATE_COUNTRY_NAME_SQL_1);
+        getJdbcTemplate().execute(
+                String.format(UPDATE_COUNTRY_NAME_SQL_1, newCountryName, codeName));
     }
 
 	public void loadCountries() {
