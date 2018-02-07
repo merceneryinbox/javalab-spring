@@ -36,7 +36,7 @@ public class JdbcTest{
 
     
     @Test
-    @DirtiesContext
+//    @DirtiesContext
     public void testCountryList() {
         List<Country> countryList = countryDao.getCountryList();
         assertNotNull(countryList);
