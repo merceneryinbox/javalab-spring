@@ -26,4 +26,6 @@
     <bean class="lab.model.SimpleContact" c:type="TELEPHONE" c:value="222-33-22"/>
     <bean class="lab.model.SimpleContact" c:type="EMAIL" c:value="jkhafg@kjhsd.ru"/>
 
+
+
 </beans>
