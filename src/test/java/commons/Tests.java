@@ -24,7 +24,7 @@ public interface Tests {
                 1,
                 "John",
                 "Smith",
-                new SimpleCountry(1, "Russia", "RU"),
+                new SimpleCountry(1L, "Russia", "RU"),
                 35,
                 1.78f,
                 true,
@@ -52,15 +52,15 @@ public interface Tests {
         }
     }
 
-    static String toTestPropertiesResourceName (String name) {
+    static String toTestPropertiesResourceName(String name) {
         return String.format("./src/test/resources/%s.properties", name);
     }
 
-    static String toTestSqlResourceName (String name) {
+    static String toTestSqlResourceName(String name) {
         return String.format("./src/test/resources/%s.sql", name);
     }
 
-    static Iterable<String> toTestSqlResourceNames (String name) {
+    static Iterable<String> toTestSqlResourceNames(String name) {
         List<String> result = new ArrayList<>();
         String sqlFilePathName;
         for (int i = 1; new File(sqlFilePathName = toTestSqlResourceName(Integer.toString(i))).exists(); i++)
