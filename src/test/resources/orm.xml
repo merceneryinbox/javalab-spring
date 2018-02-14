@@ -15,7 +15,8 @@
           p:dataSource-ref="dataSource"
           p:persistenceUnitName="springframework.lab.orm.jpa"
           p:persistenceProviderClass="org.hibernate.jpa.HibernatePersistenceProvider"
-          p:loadTimeWeaver-ref="weaver"/>
+          p:loadTimeWeaver-ref="weaver"
+          p:packagesToScan="lab.model"/>
 
     <bean id="weaver" class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver"/>
 
