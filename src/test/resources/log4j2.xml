@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration strict="true" name="spring-lab-XMLLoggerConfig" monitorInterval="10" status="WARN">
-
+<--monitorInterval="10" give us hot swapping log configuration changing, log4g2 will scan config changes every 10 minutes-->
     <Properties>
         <Property name="log-path">spring-lab-Logs</Property>
         <Property name="log-project-name">spring-lab-Log</Property>
         <Property name="log-pattern">%d{ISO8601} %-5p [Sample][%t|%c{1}] %L %M %m\n</Property>
         <Property name="rollover-strategy-max">10</Property>
+        <--10 - is number of storing files before they start to overriting from first to last tenth-->
+            
         <Property name="rolling-size-based">500 kB</Property>
+        <--maximum one file size after log4g2 will create new one with i++ number at the end of namestring-->    
+            
         <Property name="rolling-time-based">6</Property>
+        <--log4g2 will create next log file every 6 minutes if modulate-time will = true-->    
+            
         <Property name="modulate-time">true</Property>
         <Property name="rootLevel">WARN</Property>
     </Properties>
