@@ -26,6 +26,7 @@
         <Appender type="RollingFile" name="DEBUG_ROLLING"
                   fileName="${log-path}/${log-project-name}DEBUG_ROLLING.log"
                   filePattern="${log-path}/debug-${log-project-name}-%d-%i.log.zip" append="true"
+                  <!--log4g2 will archive files into gz format to parsimony disk space-->
                   immediateFlush="true">
             <Layout type="PatternLayout" pattern="${log-pattern}"/>
             <Policies>
