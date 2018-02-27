@@ -1,5 +1,6 @@
-package lab.model;
+package lab.model.simple;
 
+import lab.model.Country;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.NonFinal;
@@ -15,9 +16,9 @@ import static lombok.AccessLevel.PRIVATE;
 
 @Data
 @Entity
+@Builder
 @Table(name = "Country")
 @NoArgsConstructor
-@AllArgsConstructor
 public class SimpleCountry implements Country {
 
     @Id

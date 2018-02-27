@@ -1,12 +1,12 @@
-/**
- *
- */
-package lab.dao;
+package lab.dao.jdbc;
 
+import lab.dao.UserDao;
+import lab.model.simple.SimpleUser;
 import lab.model.User;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,9 +14,9 @@ import java.util.Optional;
 @Log4j2
 public class H2UserDao extends JdbcDaoSupport implements UserDao {
 
-    private final RowMapper<User> USER_ROW_MAPPER = (rs, rowNum) ->
-            new User()
-                    .setId(rs.getInt("id"))
+    private static final RowMapper<User> USER_ROW_MAPPER = (rs, rowNum) ->
+            new SimpleUser()
+                    .setId(rs.getLong("id"))
                     .setFirstName(rs.getString("firstname"))
                     .setLastName(rs.getString("lastname"));
 
@@ -53,5 +53,4 @@ public class H2UserDao extends JdbcDaoSupport implements UserDao {
                 "select id, firstname, lastname from user",
                 USER_ROW_MAPPER);
     }
-
 }

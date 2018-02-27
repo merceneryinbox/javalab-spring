@@ -1,6 +1,6 @@
 package aop;
 
-import lab.model.ApuBar;
+import lab.model.simple.ApuBar;
 import lab.model.Bar;
 import lab.model.Person;
 import lombok.RequiredArgsConstructor;

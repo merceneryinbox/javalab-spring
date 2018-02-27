@@ -19,9 +19,9 @@
 
     <bean id="messageSource"
           class="org.springframework.context.support.ResourceBundleMessageSource"
-          p:basenames-ref="basenames"/>
+          p:basenames-ref="baseNames"/>
 
-    <util:list id="basenames" value-type="java.lang.String">
+    <util:list id="baseNames" value-type="java.lang.String">
         <value>errors</value>
         <value>messages</value>
     </util:list>

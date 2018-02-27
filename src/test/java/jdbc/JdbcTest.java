@@ -2,9 +2,7 @@ package jdbc;
 
 import lab.dao.CountryDao;
 import lab.model.Country;
-import lab.model.SimpleCountry;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
+import lab.model.simple.SimpleCountry;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.junit.jupiter.api.BeforeEach;

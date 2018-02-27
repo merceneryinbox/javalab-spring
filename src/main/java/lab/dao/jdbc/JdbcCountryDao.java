@@ -1,21 +1,22 @@
-package lab.dao;
+package lab.dao.jdbc;
 
+import lab.dao.CountryDao;
+import lab.dao.CountryNotFoundException;
 import lab.model.Country;
-import lab.model.SimpleCountry;
+import lab.model.simple.SimpleCountry;
+import lombok.val;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcDaoSupport;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
-import java.sql.PreparedStatement;
-import java.sql.Statement;
 import java.util.List;
 import java.util.Map;
 
 import static java.sql.Statement.RETURN_GENERATED_KEYS;
 
-//@Repository
+@Repository
 public class JdbcCountryDao extends NamedParameterJdbcDaoSupport implements CountryDao {
 
     private static final String SAVE_COUNTRY_SQL = "INSERT INTO country (name, code_name) VALUES (?, ?)";
@@ -26,10 +27,11 @@ public class JdbcCountryDao extends NamedParameterJdbcDaoSupport implements Coun
     private static final String UPDATE_COUNTRY_NAME_SQL = "UPDATE country SET name='%s' WHERE code_name='%s'";
 
     private static final RowMapper<Country> COUNTRY_ROW_MAPPER = (resultSet, i) ->
-            new SimpleCountry(
-                    resultSet.getLong("id"),
-                    resultSet.getString("name"),
-                    resultSet.getString("code_name"));
+            SimpleCountry.builder()
+                    .id(resultSet.getLong("id"))
+                    .name(resultSet.getString("name"))
+                    .codeName(resultSet.getString("code_name"))
+                    .build();
 
     @Override
     public List<Country> getCountries() {
@@ -81,17 +83,17 @@ public class JdbcCountryDao extends NamedParameterJdbcDaoSupport implements Coun
                 save(country.getName(), country.getCodeName()));
     }
 
-    public long save(String name, String codeName) {
+    private long save(String name, String codeName) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
         getJdbcTemplate().update(
                 connection -> {
-                    PreparedStatement ps = connection.prepareStatement(
+                    val ps = connection.prepareStatement(
                             SAVE_COUNTRY_SQL, RETURN_GENERATED_KEYS);
                     ps.setString(1, name);
                     ps.setString(2, codeName);
                     return ps;
                 },
                 keyHolder);
-        return keyHolder.getKey().intValue();
+        return keyHolder.getKey().longValue();
     }
 }

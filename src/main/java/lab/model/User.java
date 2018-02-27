@@ -1,15 +1,10 @@
 package lab.model;
 
-import lombok.Data;
-import org.springframework.stereotype.Component;
+import lab.dao.common.Identifiable;
 
-@Data
-//@Component("userFormBean")
-public class User {
-	
-	private int id;
-	
-	private String firstName;
-	
-	private String lastName;
+public interface User extends Identifiable<User, Long> {
+
+    String getFirstName();
+
+    String getLastName();
 }

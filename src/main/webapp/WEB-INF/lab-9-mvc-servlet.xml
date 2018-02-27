@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	   xmlns:context="http://www.springframework.org/schema/context"
-	   xmlns:mvc="http://www.springframework.org/schema/mvc"
-	   xmlns:p="http://www.springframework.org/schema/p"
-	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	   xsi:schemaLocation="
-	   	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
 
 	<!-- Activates @Autowired for controllers -->
 	<context:annotation-config/>
 
-	<context:component-scan base-package="lab.model,lab.service,lab.dao" />
+	<context:component-scan base-package="lab.model,lab.service,lab.dao,lab.mvc" />
 
 	<mvc:annotation-driven/>
 
@@ -21,8 +24,23 @@
 		  p:prefix="/WEB-INF/views/"
 		  p:suffix=".jsp"/>
 
-	<!--<bean id="userDao" class="lab.dao.H2UserDao-->
-		<!--<property name="dataSource" ref="dataSource" />-->
-	<!--</bean>-->
+	<bean id="userDao" class="lab.dao.jdbc.H2UserDao"
+          p:dataSource-ref="dataSource"/>
+
+	<bean id="id" class="java.lang.Long" c:value="1"/>
+	<bean id="firstName" class="java.lang.String" c:value="John"/>
+	<bean id="lastName" class="java.lang.String" c:value="Smith"/>
+	<bean id="age" class="java.lang.Integer" c:value="35"/>
+	<bean id="height" class="java.lang.Float" c:value="1.78f"/>
+	<bean id="isProgrammer" class="java.lang.Boolean" c:value="true"/>
+	<bean id="isBroke" class="java.lang.Boolean" c:value="false"/>
+
+	<bean id="country" class="lab.model.simple.SimpleCountry"
+		  c:id="1"
+		  c:name="Russia"
+		  c:codeName="RU"/>
+
+	<bean class="lab.model.simple.SimpleContact" c:type="TELEPHONE" c:value="222-33-22"/>
+	<bean class="lab.model.simple.SimpleContact" c:type="EMAIL" c:value="jkhafg@kjhsd.ru"/>
 
 </beans>

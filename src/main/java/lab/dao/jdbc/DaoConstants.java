@@ -1,4 +1,4 @@
-package lab.dao;
+package lab.dao.jdbc;
 
 public class DaoConstants {
     public static final String CREATE_COUNTRY_TABLE_SQL = "CREATE TABLE country(id IDENTITY, name VARCHAR (255), code_name VARCHAR (255))";

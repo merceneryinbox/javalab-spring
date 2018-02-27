@@ -16,7 +16,7 @@
 </head>
 <body>
 
-<h3><spring:message code="form.adduser.name"/></h3>
+<h3><spring:message code="form.addUser.name"/></h3>
 <form:form modelAttribute="userFormBean">
     <table>
         <tr>

@@ -1,5 +1,9 @@
-package lab.model;
+package lab.model.simple;
 
+import lab.model.Bar;
+import lab.model.CustomerBrokenException;
+import lab.model.Person;
+import lab.model.Squishee;
 import org.springframework.stereotype.Service;
 
 @Service

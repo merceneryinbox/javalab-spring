@@ -1,9 +1,9 @@
 package commons;
 
 import lab.model.Person;
-import lab.model.SimpleContact;
-import lab.model.SimpleCountry;
-import lab.model.UsualPerson;
+import lab.model.simple.SimpleContact;
+import lab.model.simple.SimpleCountry;
+import lab.model.simple.UsualPerson;
 import lombok.SneakyThrows;
 import lombok.val;
 

@@ -16,7 +16,7 @@ import static lombok.AccessLevel.PRIVATE;
 import static org.springframework.transaction.annotation.Propagation.*;
 
 @Repository // is more convenient declaration for such a class than general @Service
-@RequiredArgsConstructor
+@AllArgsConstructor
 @Transactional(readOnly = true)
 public class CountryServiceImpl implements CountryService {
 

@@ -1,4 +1,4 @@
-package lab.view;
+package demo.view;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

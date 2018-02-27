@@ -3,7 +3,7 @@ package orm;
 import lab.dao.CountryDao;
 import lab.dao.CountryNotFoundException;
 import lab.model.Country;
-import lab.model.SimpleCountry;
+import lab.model.simple.SimpleCountry;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.NonFinal;
 import org.junit.jupiter.api.Test;

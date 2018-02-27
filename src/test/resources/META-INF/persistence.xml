@@ -10,7 +10,7 @@
             Persistence unit for the Spring JPA tutorial with Hibernate using as JPA provider
         </description>
 
-        <class>lab.model.SimpleCountry</class>
+        <class>lab.model.simple.SimpleCountry</class>
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
 
         <properties>
