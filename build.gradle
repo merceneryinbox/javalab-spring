@@ -32,7 +32,7 @@ test.testLogging.showStandardStreams = true
 
 dependencies {
     compile 'org.springframework:spring-context:+',
-
+            'org.quartz-scheduler', name: 'quartz', version: '2.3.0',
             // AOP
             'org.aspectj:aspectjrt:+',
             'org.aspectj:aspectjweaver:+',
