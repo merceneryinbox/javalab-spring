@@ -11,6 +11,7 @@ group = 'com.epam.javalab'
 version = '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: 'war'
 
 sourceCompatibility = 9
 
@@ -39,6 +40,7 @@ dependencies {
 
             // JDBC
             'org.springframework:spring-jdbc:+',
+            'com.h2database:h2:+',
 
             // ORM
             'org.springframework:spring-orm:+',
@@ -46,28 +48,39 @@ dependencies {
             'org.hibernate:hibernate-validator:+',
             'org.hibernate:hibernate-java8:+',
 
+            // MVC
+            'org.springframework:spring-webmvc:+',
+            'javax.servlet.jsp.jstl:javax.servlet.jsp.jstl-api:+',
+            'org.glassfish.web:javax.servlet.jsp.jstl:+',
+
+            // Common
             'org.apache.logging.log4j:log4j-slf4j-impl:+',
             'javax.xml.bind:jaxb-api:+',
             'io.vavr:vavr:+'
 
     compileOnly 'org.projectlombok:lombok:+',
-            'edu.washington.cs.types.checker:checker-framework:+'
+            'edu.washington.cs.types.checker:checker-framework:+',
+
+            // Tomcat internal libraries
+            'org.apache.tomcat:tomcat-api:+',
+            'org.apache.tomcat:tomcat-jasper:+',
+            'org.apache.tomcat:tomcat-catalina:+',
+            'org.apache.tomcat:tomcat-jsp-api:+'
 
     testCompile 'org.junit.jupiter:junit-jupiter-params:+',
             'org.hamcrest:java-hamcrest:+',
             'org.mockito:mockito-core:+',
             'org.springframework:spring-test:+'
 
-    testRuntime 'org.junit.jupiter:junit-jupiter-engine:+',
-            'com.h2database:h2:+'
+    testRuntime 'org.junit.jupiter:junit-jupiter-engine:+'
 
     // To avoid compiler warnings about @API annotations in JUnit code
     testCompileOnly 'org.apiguardian:apiguardian-api:+'
 }
 
-// type in terminal: gradle wrapper --gradle-version=4.5.1
+// type in terminal: gradle wrapper --gradle-version=4.6-rc-2
 task wrapper(type: Wrapper) {
     description = 'Generates gradlew[.bat] scripts'
-    gradleVersion = '4.5.1'
+    gradleVersion = '4.6-rc-2'
     distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
 }

@@ -1,8 +1,10 @@
 package aop;
 
-import lab.model.ApuBar;
+import lab.model.simple.ApuBar;
 import lab.model.Bar;
 import lab.model.Person;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.NonFinal;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,15 +18,15 @@ import static org.springframework.test.util.AssertionErrors.assertTrue;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration("classpath:aop.xml")
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 class AopAspectJTest {
 
-    @Autowired
-    private Bar bar;
+    Bar bar;
 
-    @Autowired
-    private Person person;
+    Person person;
 
-    private String out;
+    @NonFinal
+    String out;
 
     @BeforeEach
     void setUp() {

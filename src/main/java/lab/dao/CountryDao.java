@@ -1,8 +1,9 @@
 package lab.dao;
 
 import lab.model.Country;
-import org.springframework.beans.factory.InitializingBean;
+import lab.model.simple.SimpleCountry;
 
+import java.util.Arrays;
 import java.util.List;
 
 public interface CountryDao {
@@ -26,7 +27,14 @@ public interface CountryDao {
 
     void updateCountryName(String codeName, String newCountryName);
 
-    void loadCountries();
+    default void loadCountries() {
+        Arrays.stream(COUNTRY_INIT_DATA)
+                .map(countryInitData -> SimpleCountry.builder()
+                        .name(countryInitData[0])
+                        .codeName(countryInitData[1])
+                        .build())
+                .forEach(this::save);
+    }
 
     Country getCountryByCodeName(String codeName);
 

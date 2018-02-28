@@ -2,7 +2,9 @@ package jdbc;
 
 import lab.dao.CountryDao;
 import lab.model.Country;
-import lab.model.SimpleCountry;
+import lab.model.simple.SimpleCountry;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -14,15 +16,17 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import java.util.ArrayList;
 import java.util.List;
 
+import static lombok.AccessLevel.PRIVATE;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration("classpath:jdbc.xml")
+@FieldDefaults(makeFinal = true, level = PRIVATE)
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class JdbcTest{
 
-	@Autowired
-	private CountryDao jdbcCountryDao;
+	CountryDao jdbcCountryDao;
 	
     private List<Country> expectedCountryList = new ArrayList<>();
     private List<Country> expectedCountryListStartsWithA = new ArrayList<>();
@@ -37,24 +41,22 @@ public class JdbcTest{
     
     @Test
     @DirtiesContext
-    void testCountryList() {
-        List<Country> countryList = jdbcCountryDao.getCountries();
-        assertNotNull(countryList);
-        assertEquals(expectedCountryList.size(), countryList.size());
-        for (int i = 0; i < expectedCountryList.size(); i++) {
-            assertEquals(expectedCountryList.get(i), countryList.get(i));
-        }
+    void testCountries() {
+        List<Country> countries = jdbcCountryDao.getCountries();
+        assertNotNull(countries);
+        assertEquals(expectedCountryList.size(), countries.size());
+        for (int i = 0; i < expectedCountryList.size(); i++)
+            assertEquals(expectedCountryList.get(i), countries.get(i));
     }
 
     @Test
     @DirtiesContext
     void testCountryListStartsWithA() {
-        List<Country> countryList = jdbcCountryDao.getCountriesStartWith("A");
-        assertNotNull(countryList);
-        assertEquals(expectedCountryListStartsWithA.size(), countryList.size());
-        for (int i = 0; i < expectedCountryListStartsWithA.size(); i++) {
-            assertEquals(expectedCountryListStartsWithA.get(i), countryList.get(i));
-        }
+        List<Country> countries = jdbcCountryDao.getCountriesStartWith("A");
+        assertNotNull(countries);
+        assertEquals(expectedCountryListStartsWithA.size(), countries.size());
+        for (int i = 0; i < expectedCountryListStartsWithA.size(); i++)
+            assertEquals(expectedCountryListStartsWithA.get(i), countries.get(i));
     }
 
     @Test

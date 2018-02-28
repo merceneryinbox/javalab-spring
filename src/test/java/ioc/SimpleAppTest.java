@@ -10,7 +10,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SimpleAppTest {
 
-	private BeanFactory context = new ClassPathXmlApplicationContext(
+	@SuppressWarnings("WeakerAccess")
+	BeanFactory context = new ClassPathXmlApplicationContext(
             APPLICATION_CONTEXT_XML_FILE_NAME);
 
     @Test

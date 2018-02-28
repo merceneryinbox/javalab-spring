@@ -11,9 +11,9 @@ import static lombok.AccessLevel.NONE;
 
 @Value
 public class SimpleAuthor implements Author {
-    private Collection<Book> books;
+    Collection<Book> books;
 
     @Delegate
     @Getter(NONE)
-    private Person person;
+    Person person;
 }

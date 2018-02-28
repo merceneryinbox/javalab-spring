@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @ContextConfiguration("classpath:ioc.xml")
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 class SpringTCFAppTest {
-    private Person person;
+    Person person;
 
     @Test
     void testInitPerson() {

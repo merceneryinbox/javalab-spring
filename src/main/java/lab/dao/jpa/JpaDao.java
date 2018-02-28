@@ -1,20 +1,20 @@
 package lab.dao.jpa;
 
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Delegate;
+import lombok.experimental.NonFinal;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceUnit;
-import java.io.Closeable;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
 public abstract class JpaDao {
 
+    @NonFinal
 	@Setter(onMethod = @__(@PersistenceUnit))
 	protected EntityManagerFactory emf;
 

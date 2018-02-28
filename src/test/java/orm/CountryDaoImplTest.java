@@ -3,7 +3,9 @@ package orm;
 import lab.dao.CountryDao;
 import lab.dao.CountryNotFoundException;
 import lab.model.Country;
-import lab.model.SimpleCountry;
+import lab.model.simple.SimpleCountry;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.NonFinal;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,23 +21,25 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration("classpath:orm.xml")
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 class CountryDaoImplTest {
 
-    private Country exampleCountry = new SimpleCountry(1L, "Australia", "AU");
+    private final static Country EXAMPLE_COUNTRY =
+            new SimpleCountry(1L, "Australia", "AU");
 
-    @Autowired
-    private CountryDao countryDao;
+    CountryDao countryDao;
 
-    private int size;
+    @NonFinal
+    int size;
 
     @Test
     void testSaveCountry() {
-        countryDao.save(exampleCountry);
+        countryDao.save(EXAMPLE_COUNTRY);
         size++;
 
         List<Country> countries = countryDao.getCountries();
         assertEquals(1, countries.size());
-        assertEquals(exampleCountry, countries.get(0));
+        assertEquals(EXAMPLE_COUNTRY, countries.get(0));
     }
 
     @Test
@@ -48,9 +52,9 @@ class CountryDaoImplTest {
 
     @Test
     void testGetCountryByName() throws CountryNotFoundException {
-        countryDao.save(exampleCountry);
+        countryDao.save(EXAMPLE_COUNTRY);
         size++;
 
-        assertEquals(exampleCountry, countryDao.getCountryByName(exampleCountry.getName()));
+        assertEquals(EXAMPLE_COUNTRY, countryDao.getCountryByName(EXAMPLE_COUNTRY.getName()));
     }
 }

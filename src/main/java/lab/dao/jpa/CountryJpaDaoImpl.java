@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository("countryDao")
+//@Repository("countryDao")
 public class CountryJpaDaoImpl extends JpaDao implements CountryDao {
 
     @Override

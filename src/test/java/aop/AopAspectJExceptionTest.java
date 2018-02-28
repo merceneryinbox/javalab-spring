@@ -4,6 +4,7 @@ import lab.model.Bar;
 import lab.model.CustomerBrokenException;
 import lab.model.Person;
 import lombok.AllArgsConstructor;
+import lombok.experimental.NonFinal;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -22,6 +23,7 @@ class AopAspectJExceptionTest {
 
     private Bar bar;
 
+    @NonFinal
     private Person person;
 
     @BeforeEach

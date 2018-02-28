@@ -1,6 +1,8 @@
 package lab.model;
 
-public interface Contact {
+import lab.dao.common.Identifiable;
+
+public interface Contact extends Identifiable<Contact, Long> {
     String getType();
     String getValue();
 }

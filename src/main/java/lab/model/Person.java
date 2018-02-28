@@ -4,9 +4,7 @@ import java.util.List;
 
 import static java.lang.String.format;
 
-public interface Person {
-    String getFirstName();
-    String getLastName();
+public interface Person extends User {
     Country getCountry();
     int getAge();
     float getHeight();
