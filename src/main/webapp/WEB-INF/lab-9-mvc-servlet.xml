@@ -24,6 +24,8 @@
 		  p:prefix="/WEB-INF/views/"
 		  p:suffix=".jsp"/>
 
+	<bean id="schedulerFactoryBean" class="org.quartz.sheduler"/>
+
 	<bean id="userDao" class="lab.dao.jdbc.H2UserDao"
           p:dataSource-ref="dataSource"/>
 

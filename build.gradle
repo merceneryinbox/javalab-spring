@@ -70,7 +70,8 @@ dependencies {
     testCompile 'org.junit.jupiter:junit-jupiter-params:+',
             'org.hamcrest:java-hamcrest:+',
             'org.mockito:mockito-core:+',
-            'org.springframework:spring-test:+'
+            'org.springframework:spring-test:+',
+            'org.quartz-scheduler', name: 'quartz', version: '2.3.0'
 
     testRuntime 'org.junit.jupiter:junit-jupiter-engine:+'
 
